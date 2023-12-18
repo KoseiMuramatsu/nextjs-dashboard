@@ -1,5 +1,5 @@
 import { sql } from '@vercel/postgres';
-import { unstable_noStore as noStore} from 'next/cache'
+import { unstable_noStore as noStore } from 'next/cache';
 import {
   CustomerField,
   CustomersTableType,
@@ -169,6 +169,7 @@ export async function fetchInvoiceById(id: string) {
       amount: invoice.amount / 100,
     }));
 
+    console.log(invoice);
     return invoice[0];
   } catch (error) {
     console.error('Database Error:', error);
